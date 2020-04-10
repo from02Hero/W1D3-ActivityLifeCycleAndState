@@ -1,4 +1,4 @@
-package com.example.w1d3_activitylifecycle
+package com.example.w1d4_activitylifecycle
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

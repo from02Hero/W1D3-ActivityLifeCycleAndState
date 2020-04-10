@@ -1,8 +1,7 @@
-package com.example.w1d3_activitylifecycle
+package com.example.w1d4_activitylifecycle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
