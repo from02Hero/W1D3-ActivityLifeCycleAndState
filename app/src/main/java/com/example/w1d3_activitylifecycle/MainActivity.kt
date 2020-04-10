@@ -7,26 +7,29 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var counter = 0
+    lateinit var person: Person
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        person = Person(0, "John")
     }
 
     fun count(view: View) {
-        counter++
-        counterTxt.text = counter.toString()
+        person.age++
+        counterTxt.text = person.age.toString()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("counter", counter)
+        outState.putSerializable("person", person)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        counter = savedInstanceState.getInt("counter", 0)
-        counterTxt.text = counter.toString()
+        if (savedInstanceState.containsKey("person")) {
+            person = savedInstanceState.getSerializable("person") as Person
+            counterTxt.text = person.age.toString()
+        }
     }
 }
