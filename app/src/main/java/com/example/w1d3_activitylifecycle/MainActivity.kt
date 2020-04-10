@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putSerializable("person", person)
+        outState.putParcelable("person", person)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         if (savedInstanceState.containsKey("person")) {
-            person = savedInstanceState.getSerializable("person") as Person
+            person = savedInstanceState.getParcelable("person")!!
             counterTxt.text = person.age.toString()
         }
     }
