@@ -18,4 +18,15 @@ class MainActivity : AppCompatActivity() {
         counter++
         counterTxt.text = counter.toString()
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("counter", counter)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        counter = savedInstanceState.getInt("counter", 0)
+        counterTxt.text = counter.toString()
+    }
 }
